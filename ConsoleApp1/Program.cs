@@ -1,19 +1,22 @@
-﻿Console.WriteLine("Print one number");
-int num = Convert.ToInt32(Console.ReadLine());
+﻿int num_day = Convert.ToInt32(Console.ReadLine());
+string day;
 
-if (num % 3 == 0 && num % 5 == 0)
+switch (num_day)
 {
-    Console.WriteLine("FIZZBUZZ");
+    case 1: day = "Januar"; break;
+    case 2: day = "Februar"; break;
+    case 3: day = "März"; break;
+    case 4: day = "April"; break;
+    case 5: day = "Mai"; break;
+    case 6: day = "Juni"; break;
+    case 7: day = "Juli"; break;
+    case 8: day = "August"; break;
+    case 9: day = "September"; break;
+    case 10: day = "Oktober"; break;
+    case 11: day = "November"; break;
+    case 12: day = "Dezember"; break;
+    default: day = "Unbekannt"; break;
+ 
 }
-else if (num % 3 == 0)
-{
-    Console.WriteLine("FIZZ");
-}
-else if (num % 5 == 0)
-{
-    Console.WriteLine("BUZZ");
-}
-else
-{
-    Console.WriteLine(num);
-}
+
+Console.WriteLine(day);
