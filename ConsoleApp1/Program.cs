@@ -1,12 +1,13 @@
-﻿int a = 0;
-int b = 0;
+﻿int num = 0;
 
-Console.WriteLine("Print first number");
-a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Schreib dein Zahl");
+num = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Print second number");
-b = Convert.ToInt32(Console.ReadLine());
-
-int sum = a + b;
-
-Console.WriteLine($"Sum of numbers: {0}", sum);
+if (num % 2 == 0)
+{
+    Console.WriteLine("Zahl ist durch 2 teilbar");
+}
+else
+{
+    Console.WriteLine("Zahl ist NICHT durch 2 teilbar");
+}
