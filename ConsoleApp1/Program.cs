@@ -1,13 +1,19 @@
-﻿Console.WriteLine("Wie alt bist du?");
-byte age = Convert.ToByte(Console.ReadLine());
+﻿Console.WriteLine("Print one number");
+int num = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine(age >= 18 ? "Du darfst rein." : "Du bist zu jung.");
-
-
-
-//bool result = age >= 18;
-
-//if (result)
-//    Console.WriteLine("Du darfst rein.");
-//else
-//    Console.WriteLine("Du bist zu jung.");
+if (num % 3 == 0 && num % 5 == 0)
+{
+    Console.WriteLine("FIZZBUZZ");
+}
+else if (num % 3 == 0)
+{
+    Console.WriteLine("FIZZ");
+}
+else if (num % 5 == 0)
+{
+    Console.WriteLine("BUZZ");
+}
+else
+{
+    Console.WriteLine(num);
+}
