@@ -1,15 +1,21 @@
-﻿int num = 0;
+﻿int age = 0;
 
-//Console.WriteLine("Schreib dein Zahl");
-//num = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Print your age");
+age = Convert.ToInt32(Console.ReadLine());
 
-//if (num % 2 == 0)
-//{
-//    Console.WriteLine("Zahl ist durch 2 teilbar");
-//}
-//else
-//{
-//    Console.WriteLine("Zahl ist NICHT durch 2 teilbar");
-//}
-
-Console.WriteLine("Zahl {0} ist durch {1} 2 teilbar", num, num % 2 == 0 ? "" : "NICHT");
+if (age < 10)
+{
+    Console.WriteLine("Baby");
+}
+else if (age >= 10 && age < 20)
+{
+    Console.WriteLine("Jugendlich");
+}
+else if (age >= 20 && age < 50)
+{
+    Console.WriteLine("Erwachsene");
+}
+else
+{
+    Console.WriteLine("Alt");
+}
