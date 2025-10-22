@@ -9,4 +9,4 @@ b = Convert.ToInt32(Console.ReadLine());
 
 int sum = a + b;
 
-Console.WriteLine("Summa of numbers: {0}", sum);
+Console.WriteLine($"Sum of numbers: {0}", sum);
