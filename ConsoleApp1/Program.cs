@@ -1,25 +1,6 @@
-﻿namespace ConsoleApp1
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("2 + 2 = 5");
-            Console.WriteLine(2 * 6);
+﻿Console.WriteLine("Hello");
+string text;
+text = string.Empty;
+text = Console.ReadLine();
+Console.WriteLine("Your value: {0}", text);
 
-            var a = 4;
-            if (a == 5)
-            {
-                Console.WriteLine("If block");
-            } else
-            {
-                a = 10;
-            }
-
-            Console.WriteLine(a);
-
-            const int b = 15;
-
-        }
-    }
-}
