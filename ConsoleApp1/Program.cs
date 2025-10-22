@@ -1,22 +1,29 @@
-﻿int num_day = Convert.ToInt32(Console.ReadLine());
-string day;
+﻿using System.Dynamic;
+using System.Threading.Channels;
 
-switch (num_day)
+Console.WriteLine("Enter first number");
+int num1 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter second number");
+int num2 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter operation (+, -, * or /)");
+char operation = Convert.ToChar(Console.ReadLine());
+
+int result = 0;
+
+switch (operation)
 {
-    case 1: day = "Januar"; break;
-    case 2: day = "Februar"; break;
-    case 3: day = "März"; break;
-    case 4: day = "April"; break;
-    case 5: day = "Mai"; break;
-    case 6: day = "Juni"; break;
-    case 7: day = "Juli"; break;
-    case 8: day = "August"; break;
-    case 9: day = "September"; break;
-    case 10: day = "Oktober"; break;
-    case 11: day = "November"; break;
-    case 12: day = "Dezember"; break;
-    default: day = "Unbekannt"; break;
- 
+    case '+': result = num1 + num2; break;
+    case '-': result = num1 - num2; break;
+    case '*': result = num1 * num2; break;
+    case '/': 
+        {
+            result = num1 / num2; 
+            Console.WriteLine("Rest von dividierung: {0}", num1 % num2); 
+            break;
+        } 
+    default: Console.WriteLine("Unbekannt"); break;
 }
 
-Console.WriteLine(day);
+Console.WriteLine("Result: {0}", result);
