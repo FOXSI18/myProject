@@ -1,12 +1,12 @@
-﻿string? name;
-int age = 0;
+﻿int a = 0;
+int b = 0;
 
-Console.WriteLine("Wie heißt du?");
-name = Console.ReadLine();
+Console.WriteLine("Print first number");
+a = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Wie alt bist du?");
-age = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Print second number");
+b = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Hallo {0}, in 30 Jahren bist du {1} Jahre alt :(", name, age + 30);
+int sum = a + b;
 
-// Output: Hallo {name}, in 30 Jahren bist du {age+30} Jahre alt :(
+Console.WriteLine("Summa of numbers: {0}", sum);
