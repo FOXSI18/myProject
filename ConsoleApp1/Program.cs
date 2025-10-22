@@ -7,11 +7,16 @@
             Console.WriteLine("2 + 2 = 5");
             Console.WriteLine(2 * 6);
 
-            var a = 5;
+            var a = 4;
             if (a == 5)
             {
                 Console.WriteLine("If block");
+            } else
+            {
+                a = 10;
             }
+
+            Console.WriteLine(a);
         }
     }
 }
