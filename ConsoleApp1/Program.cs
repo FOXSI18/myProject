@@ -1,21 +1,13 @@
-﻿byte age = 0;
+﻿Console.WriteLine("Wie alt bist du?");
+byte age = Convert.ToByte(Console.ReadLine());
 
-Console.WriteLine("Print your age");
-age = Convert.ToByte(Console.ReadLine());
+Console.WriteLine(age >= 18 ? "Du darfst rein." : "Du bist zu jung.");
 
-if (age < 10)
-{
-    Console.WriteLine("Baby");
-}
-else if (age < 20)
-{
-    Console.WriteLine("Jugendlich");
-}
-else if (age < 50)
-{
-    Console.WriteLine("Erwachsene");
-}
-else
-{
-    Console.WriteLine("Alt");
-}
+
+
+//bool result = age >= 18;
+
+//if (result)
+//    Console.WriteLine("Du darfst rein.");
+//else
+//    Console.WriteLine("Du bist zu jung.");
