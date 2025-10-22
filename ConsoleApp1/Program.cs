@@ -17,6 +17,9 @@
             }
 
             Console.WriteLine(a);
+
+            const int b = 15;
+
         }
     }
 }
