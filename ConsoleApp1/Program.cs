@@ -1,21 +1,13 @@
 ﻿Console.WriteLine("Print dein Zahl");
 int num = Convert.ToInt32(Console.ReadLine());
-int i = 0;
 
-do
+for(int i = 0; i <= num; i++) // Initialisierung of variable - Condition - Change value of variable
 {
- if (i % 2 == 0)
-    Console.WriteLine(">>> {0} ist durch 2 teilbar.", i);
- else
-    Console.WriteLine(i);
-
- i++;
+    if (i % 2 == 0)
+        Console.WriteLine(">>> {0} ist durch 2 teilbar", i);
+    else
+        Console.WriteLine(i);
 }
-while (i <= num);
-
-
-
-
 
 
 
@@ -45,10 +37,23 @@ while (i <= num);
 //}
 
 
-//for (int z = 40; z < 50; z++) // Initialisierung of variable - Condition - Change value of variable
+
+
+//Console.WriteLine("Print dein Zahl");
+//int num = Convert.ToInt32(Console.ReadLine());
+//int i = 0;
+
+//do
 //{
-//    Console.WriteLine(z);
+//    if (i % 2 == 0)
+//        Console.WriteLine(">>> {0} ist durch 2 teilbar.", i);
+//    else
+//        Console.WriteLine(i);
+
+//    i++;
 //}
+//while (i <= num);
+
 
 
 //string[] colors = { "red", "yellow", "orange", "green", "blue", "purple" }; // Array initialisierung
