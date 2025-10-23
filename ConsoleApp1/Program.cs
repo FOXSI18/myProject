@@ -1,17 +1,17 @@
-﻿Console.WriteLine("Print dein text");
+﻿Console.WriteLine("Enter some text...");
 string? name = Console.ReadLine();
-int len = name!.Length;
-int qsum = 0;
 
-Console.WriteLine("Text: {0} | Buchstaben: {1}", name, len);
+string a = name ?? "its a null value";
 
-for(int i = 1; i <= len; i++)
-{
-    Console.WriteLine("{0} + {1} = {2}", qsum, i, qsum + i);
-    qsum += i;
-}
+Console.WriteLine(a);
 
-Console.WriteLine("Die Quersumme: {0}", qsum);
+
+
+
+
+
+
+
 
 
 
