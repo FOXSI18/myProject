@@ -1,58 +1,24 @@
-﻿Console.WriteLine("Enter some text...");
-string? name = Console.ReadLine();
+﻿Console.WriteLine("Enter some text... (\"quit \" to exit.)");
+Console.WriteLine();
 
-string a = name ?? "its a null value";
+while (true)
+{
+    string? name = Console.ReadLine();
 
-Console.WriteLine(a);
+    if (name == "quit")
+        break;
 
+    name = name!.ToLower().Trim();
+    string defName = name;
+    string? reversedName = string.Empty;
 
+    foreach (char c in name.Reverse())
+    {
+        reversedName += c;
+    }
 
-
-
-
-
-
-
-
-
-
-
-//Console.WriteLine("Print dein Zahl");
-//int num = Convert.ToInt32(Console.ReadLine());
-//int i = 0;
-
-//while (i <= num) // Make while condition == true
-//{
-//    if (i % 2 == 0)
-//        Console.WriteLine(">>> {0} ist durch 2 teilbar.", i);
-//    else
-//        Console.WriteLine(i);
-
-//    i++;
-//}
-
-
-
-
-//Console.WriteLine("Print dein Zahl");
-//int num = Convert.ToInt32(Console.ReadLine());
-//int i = 0;
-
-//do
-//{
-//    if (i % 2 == 0)
-//        Console.WriteLine(">>> {0} ist durch 2 teilbar.", i);
-//    else
-//        Console.WriteLine(i);
-
-//    i++;
-//}
-//while (i <= num);
-
-
-
-//string[] colors = { "red", "yellow", "orange", "green", "blue", "purple" }; // Array initialisierung
-//foreach (string color in colors) // Variable init, that 1 color had (in every iteration 1 element of array)
-//{
-//    Console.WriteLine(color);
-//}
+    Console.WriteLine();
+    Console.WriteLine("\"{0}\" {2} \"{1}\"", reversedName, defName, reversedName == defName ? "==" : "!=");
+    Console.WriteLine(reversedName == defName ? "[+] True" : "[-] False");
+    Console.WriteLine("-------------------------");
+}
