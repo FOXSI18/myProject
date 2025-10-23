@@ -1,24 +1,7 @@
-﻿Console.WriteLine("Enter some text... (\"quit \" to exit.)");
-Console.WriteLine();
-
-while (true)
+﻿for (int i = 1; i < 100; i *= 2)
 {
-    string? name = Console.ReadLine();
+    if (i < 50)
+        continue;
 
-    if (name == "quit")
-        break;
-
-    name = name!.ToLower().Trim();
-    string defName = name;
-    string? reversedName = string.Empty;
-
-    foreach (char c in name.Reverse())
-    {
-        reversedName += c;
-    }
-
-    Console.WriteLine();
-    Console.WriteLine("\"{0}\" {2} \"{1}\"", reversedName, defName, reversedName == defName ? "==" : "!=");
-    Console.WriteLine(reversedName == defName ? "[+] True" : "[-] False");
-    Console.WriteLine("-------------------------");
+    Console.WriteLine(i);
 }
