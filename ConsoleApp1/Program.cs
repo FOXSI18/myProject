@@ -1,26 +1,30 @@
-﻿Console.WriteLine("Enter first number");
-int num1 = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine("Enter second number");
-int num2 = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine("Enter operation (+, -, * or /)");
-char opr = Convert.ToChar(Console.ReadLine());
-
-int result = 0;
-
-switch (opr)
+﻿int x = 0;
+while (x < 10) // Make while condition == true
 {
-    case '+': result = num1 + num2; break;
-    case '-': result = num1 - num2; break;
-    case '*': result = num1 * num2; break;
-    case '/': 
-        {
-            result = num1 / num2; 
-            Console.WriteLine("Rest von Division: {0}", num1 % num2); 
-            break;
-        } 
-    default: Console.WriteLine("Unbekannt"); break;
+    Console.WriteLine(x);
+    x++;
 }
 
-Console.WriteLine("Result: {0}", result);
+
+
+int y = 100;
+do // Start minimum 1 time
+{
+    Console.WriteLine(y);
+    y++;
+}
+while (y < 110);
+
+
+
+for (int z = 40; z < 50; z++) // Initialisierung of variable - Condition - Change value of variable
+{
+    Console.WriteLine(z);
+}
+
+
+string[] colors = { "red", "yellow", "orange", "green", "blue", "purple" };
+foreach (string color in colors)
+{
+    Console.WriteLine(color);
+}
