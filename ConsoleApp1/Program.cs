@@ -2,19 +2,16 @@
 int num = Convert.ToInt32(Console.ReadLine());
 int i = 0;
 
-while (i <= num) // Make while condition == true
+do
 {
-    if (i % 2 == 0)
-        Console.WriteLine(">>> {0} ist durch 2 teilbar.", i);
-    else
-        Console.WriteLine(i);
+ if (i % 2 == 0)
+    Console.WriteLine(">>> {0} ist durch 2 teilbar.", i);
+ else
+    Console.WriteLine(i);
 
-    i++;
+ i++;
 }
-
-
- 
-
+while (i <= num);
 
 
 
@@ -30,14 +27,22 @@ while (i <= num) // Make while condition == true
 
 
 
-//int y = 100;
-//do // Start minimum 1 time
+
+
+
+//Console.WriteLine("Print dein Zahl");
+//int num = Convert.ToInt32(Console.ReadLine());
+//int i = 0;
+
+//while (i <= num) // Make while condition == true
 //{
-//    Console.WriteLine(y);
-//    y++;
-//}
-//while (y < 110);
+//    if (i % 2 == 0)
+//        Console.WriteLine(">>> {0} ist durch 2 teilbar.", i);
+//    else
+//        Console.WriteLine(i);
 
+//    i++;
+//}
 
 
 //for (int z = 40; z < 50; z++) // Initialisierung of variable - Condition - Change value of variable
