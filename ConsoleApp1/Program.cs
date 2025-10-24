@@ -1,19 +1,22 @@
-﻿Console.WriteLine("Print one number");
-int num = Convert.ToInt32(Console.ReadLine());
+﻿for(int i = 0; i < 100; i++)
+{
+    if (i % 3 == 0 && i % 5 == 0)
+    {
+        Console.WriteLine("{0} FIZZBUZZ", i);
+    }
+    else if (i % 3 == 0)
+    {
+        Console.WriteLine("{0} FIZZ", i);
+    }
+    else if (i % 5 == 0)
+    {
+        Console.WriteLine("{0} BUZZ", i);
+    }
+    else
+    {
+        Console.WriteLine(i);
+    }
+}
 
-if (num % 3 == 0 && num % 5 == 0)
-{
-    Console.WriteLine("FIZZBUZZ");
-}
-else if (num % 3 == 0)
-{
-    Console.WriteLine("FIZZ");
-}
-else if (num % 5 == 0)
-{
-    Console.WriteLine("BUZZ");
-}
-else
-{
-    Console.WriteLine(num);
-}
+
+
