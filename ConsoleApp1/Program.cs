@@ -1,22 +1,38 @@
-﻿class Programm
+﻿/* Fibonacci Reihe
+ * 1. Länge eingeben
+ * 2. For Schleife
+ * 3. Ausgabe sollte sein: 0 1 1 2 3 5 8 13 21 34 55 ...
+*/
+class Programm
 {
-    static void Main(string[] args)
+     void Main(string[] args)
     {
-        int length;
         Console.WriteLine("Enter length:");
-        length = Convert.ToInt32(Console.ReadLine());
+        int length = Convert.ToInt32(Console.ReadLine());
 
-        int first = 0;
-        int second = 1;
-        int third = 0;
+        int a = 0, b = 1, sum = 0;
 
         for (int i = 1; i < length; i++)
         {
-            Console.WriteLine(third);
-            third = first + second;
-            first = second;
-            second = third;
+            Console.WriteLine(sum);
+            sum = a + b;
+            a = b;
+            b = sum;
         }
 
+        a = 0;
+        b = 1;
+        sum = 0;
+
+        Rekursion(a, b, length);
+    }
+
+    void Rekursion(int zahl1, int zahl2, int depth)
+    {
+        if (depth == 0)
+            return;
+
+        Console.WriteLine(zahl1);
+        Rekursion(zahl2, zahl1 + zahl2, depth - 1);
     }
 }
