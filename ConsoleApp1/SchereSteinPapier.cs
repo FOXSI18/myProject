@@ -16,6 +16,8 @@ enum Werkzeuge
     Stein,
     Schere,
     Papier,
+    Echse,
+    Spock,
 }
 
 namespace SchereSteinPapier
@@ -32,7 +34,7 @@ namespace SchereSteinPapier
         while (true)
         {
             Console.WriteLine("Games counter: {0}", gamesCounter);
-            Console.WriteLine("[1] - Stein \n[2] - Schere \n[3] - Papier \n[0] - Exit\n\n");
+            Console.WriteLine("[1] - Stein \n[2] - Schere \n[3] - Papier \n[4] - Echse \n[5] - Spock \n[0] - Exit\n\n");
             
             try
             {
@@ -69,14 +71,14 @@ namespace SchereSteinPapier
             }
             
             
-            gamesCounter++;
+            ++gamesCounter;
         }
 
         
         static void Choice(Werkzeuge werkzeug, ref int playerScore, ref int robotScore, ref int drawScore)
         {
             Random random = new Random();
-            Werkzeuge robotChoice = (Werkzeuge)random.Next(1, 4);
+            Werkzeuge robotChoice = (Werkzeuge)random.Next(1, 6);
             
             Console.WriteLine("Robot: {0}", robotChoice);
 
@@ -88,7 +90,14 @@ namespace SchereSteinPapier
             else if (
                 (werkzeug == Werkzeuge.Stein && robotChoice == Werkzeuge.Schere) ||
                 (werkzeug == Werkzeuge.Schere && robotChoice == Werkzeuge.Papier) ||
-                (werkzeug == Werkzeuge.Papier && robotChoice == Werkzeuge.Stein)
+                (werkzeug == Werkzeuge.Papier && robotChoice == Werkzeuge.Stein) ||
+                (werkzeug == Werkzeuge.Stein && robotChoice == Werkzeuge.Echse) ||
+                (werkzeug == Werkzeuge.Echse && robotChoice == Werkzeuge.Spock) ||
+                (werkzeug == Werkzeuge.Spock && robotChoice == Werkzeuge.Schere) ||
+                (werkzeug == Werkzeuge.Schere && robotChoice == Werkzeuge.Echse) ||
+                (werkzeug == Werkzeuge.Echse && robotChoice == Werkzeuge.Papier) ||
+                (werkzeug == Werkzeuge.Papier && robotChoice == Werkzeuge.Spock) ||
+                (werkzeug == Werkzeuge.Spock && robotChoice == Werkzeuge.Stein) 
             )
             {
                 Console.WriteLine("Won :)");
