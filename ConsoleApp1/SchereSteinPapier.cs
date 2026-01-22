@@ -33,6 +33,7 @@ namespace SchereSteinPapier
         
         while (true)
         {
+            Console.WriteLine("Hallo");
             Console.WriteLine("Games counter: {0}", gamesCounter);
             Console.WriteLine("[1] - Stein \n[2] - Schere \n[3] - Papier \n[4] - Echse \n[5] - Spock \n[0] - Exit\n\n");
             
