@@ -1,12 +1,14 @@
-/* 14:15
- * 1. Enums
- * 2. Input
+﻿/* 1. Enums
+ * 2. Input & TryParse
+ * 3. New Method "Choice"
  * 3. Random
  * 4. My choice and robot choice
- * 5. if - if else - else
- *
- * 8. don't use input for choice -> readKey
+ * 5. Scores system
+ * 6. if - if else - else
+ * 7. Leaderboard
  * */
+
+using System.Text.RegularExpressions;
 
 enum Werkzeuge
 {
@@ -31,31 +33,42 @@ namespace SchereSteinPapier
         {
             Console.WriteLine("Games counter: {0}", gamesCounter);
             Console.WriteLine("[1] - Stein \n[2] - Schere \n[3] - Papier \n[0] - Exit\n\n");
-            string userChoice = Console.ReadLine();
-            Werkzeuge werkzeug = Werkzeuge.None;
             
-            
-            if (userChoice == "0")
-                break;
-            
-            if (Enum.TryParse(userChoice, true, out Werkzeuge werkzeuge) && 
-                Enum.IsDefined(typeof(Werkzeuge), werkzeuge) && 
-                werkzeuge != Werkzeuge.None)
+            try
             {
-                Console.Clear();
-                Console.WriteLine("---------BATTLE-INFO---------");
-                Console.WriteLine("You: {0}", werkzeuge);
+                string userChoice = Regex.Replace(Console.ReadLine(), @"\s+", "");
+                Werkzeuge werkzeug = Werkzeuge.None;
+                
+                if (userChoice == "0")
+                    break;
+            
+                if (Enum.TryParse(userChoice, true, out Werkzeuge werkzeuge) && 
+                    Enum.IsDefined(typeof(Werkzeuge), werkzeuge) && 
+                    werkzeuge != Werkzeuge.None)
+                {
+                    Console.Clear();
+                    Console.WriteLine("---------BATTLE-INFO---------");
+                    Console.WriteLine("You: {0}", werkzeuge);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("! << << << ERROR >> >> >> !");
+                    Console.WriteLine("Your choice is not defined\n");
+                    continue;
+                }
+                
+                Choice(werkzeuge, ref playerScore, ref robotScore, ref drawScore);
             }
-            else
+            catch (System.ArgumentNullException)
             {
                 Console.Clear();
                 Console.WriteLine("! << << << ERROR >> >> >> !");
-                Console.WriteLine("Your choice is not defined\n");
+                Console.WriteLine("You can't pick a nullable\n");
                 continue;
             }
             
             
-            Choice(werkzeuge, ref playerScore, ref robotScore, ref drawScore);
             gamesCounter++;
         }
 
