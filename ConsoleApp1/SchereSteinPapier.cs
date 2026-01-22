@@ -1,11 +1,9 @@
 ﻿/* 1. Enums
- * 2. Input & TryParse
+ * 2. Input & TryParse in try-catch
  * 3. New Method "Choice"
- * 3. Random
- * 4. My choice and robot choice
- * 5. Scores system
- * 6. if - if else - else
- * 7. Leaderboard
+ * 4. KI - Robot choice
+ * 5. Result
+ * 6. Leaderboard
  * */
 
 using System.Text.RegularExpressions;
@@ -16,8 +14,6 @@ enum Werkzeuge
     Stein,
     Schere,
     Papier,
-    Echse,
-    Spock,
 }
 
 namespace SchereSteinPapier
@@ -34,7 +30,7 @@ namespace SchereSteinPapier
         while (true)
         {
             Console.WriteLine("Games counter: {0}", gamesCounter);
-            Console.WriteLine("[1] - Stein \n[2] - Schere \n[3] - Papier \n[4] - Echse \n[5] - Spock \n[0] - Exit\n\n");
+            Console.WriteLine("[1] - Stein \n[2] - Schere \n[3] - Papier \n[0] - Exit\n\n");
             
             try
             {
@@ -62,7 +58,7 @@ namespace SchereSteinPapier
                 
                 Choice(werkzeuge, ref playerScore, ref robotScore, ref drawScore);
             }
-            catch (System.ArgumentNullException)
+            catch (ArgumentNullException)
             {
                 Console.Clear();
                 Console.WriteLine("! << << << ERROR >> >> >> !");
@@ -71,14 +67,34 @@ namespace SchereSteinPapier
             }
             
             
-            ++gamesCounter;
+            gamesCounter++;
         }
-
+        
         
         static void Choice(Werkzeuge werkzeug, ref int playerScore, ref int robotScore, ref int drawScore)
         {
-            Random random = new Random();
-            Werkzeuge robotChoice = (Werkzeuge)random.Next(1, 6);
+            Werkzeuge robotChoice;
+            int steinSc = 0, schereSc = 0, papierSc = 0;
+
+
+            if (werkzeug == Werkzeuge.Stein)
+                ++steinSc;
+            if (werkzeug == Werkzeuge.Schere)
+                ++schereSc;
+            if (werkzeug == Werkzeuge.Papier)
+                ++papierSc;
+
+            if (Random.Shared.Next(100) < 90) // Zu 90% trifft die KI eine random Wahl, zu 10% gewinnt sie garantiert
+                robotChoice = (Werkzeuge)Random.Shared.Next(1, 4);
+            else if (schereSc > papierSc ||schereSc > steinSc)
+                robotChoice = Werkzeuge.Stein; // stein -> schere
+            else if (papierSc > schereSc || papierSc > steinSc)
+                robotChoice = Werkzeuge.Schere; // schere -> papier
+            else if (steinSc > schereSc || steinSc > papierSc)
+                robotChoice = Werkzeuge.Papier; // papier -> stein
+            else
+                return;
+
             
             Console.WriteLine("Robot: {0}", robotChoice);
 
@@ -90,14 +106,7 @@ namespace SchereSteinPapier
             else if (
                 (werkzeug == Werkzeuge.Stein && robotChoice == Werkzeuge.Schere) ||
                 (werkzeug == Werkzeuge.Schere && robotChoice == Werkzeuge.Papier) ||
-                (werkzeug == Werkzeuge.Papier && robotChoice == Werkzeuge.Stein) ||
-                (werkzeug == Werkzeuge.Stein && robotChoice == Werkzeuge.Echse) ||
-                (werkzeug == Werkzeuge.Echse && robotChoice == Werkzeuge.Spock) ||
-                (werkzeug == Werkzeuge.Spock && robotChoice == Werkzeuge.Schere) ||
-                (werkzeug == Werkzeuge.Schere && robotChoice == Werkzeuge.Echse) ||
-                (werkzeug == Werkzeuge.Echse && robotChoice == Werkzeuge.Papier) ||
-                (werkzeug == Werkzeuge.Papier && robotChoice == Werkzeuge.Spock) ||
-                (werkzeug == Werkzeuge.Spock && robotChoice == Werkzeuge.Stein) 
+                (werkzeug == Werkzeuge.Papier && robotChoice == Werkzeuge.Stein)
             )
             {
                 Console.WriteLine("Won :)");
