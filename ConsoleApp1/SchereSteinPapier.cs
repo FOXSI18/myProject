@@ -66,13 +66,13 @@ namespace SchereSteinPapier
                 continue;
             }
             
-            
             gamesCounter++;
         }
         
         
         static void Choice(Werkzeuge werkzeug, ref int playerScore, ref int robotScore, ref int drawScore)
         {
+            var currentColor = Console.ForegroundColor; // Farbe von text
             Werkzeuge robotChoice;
             int steinSc = 0, schereSc = 0, papierSc = 0;
 
@@ -97,10 +97,12 @@ namespace SchereSteinPapier
 
             
             Console.WriteLine("Robot: {0}", robotChoice);
-
+  
             if (werkzeug == robotChoice)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow; // yellow
                 Console.WriteLine("Draw!");
+                Console.ForegroundColor = currentColor;
                 drawScore++;
             }
             else if (
@@ -109,12 +111,16 @@ namespace SchereSteinPapier
                 (werkzeug == Werkzeuge.Papier && robotChoice == Werkzeuge.Stein)
             )
             {
-                Console.WriteLine("Won :)");
+                Console.ForegroundColor = ConsoleColor.Green; // green
+                Console.WriteLine("You Won :)");
+                Console.ForegroundColor = currentColor;
                 playerScore++; 
             }
             else
             {
-                Console.WriteLine("Lose :("); 
+                Console.ForegroundColor = ConsoleColor.Red; // red
+                Console.WriteLine("You lose :(");
+                Console.ForegroundColor = currentColor;
                 robotScore++;
             }
             
@@ -123,20 +129,29 @@ namespace SchereSteinPapier
             
             if (playerScore > robotScore)
             {
+                Console.ForegroundColor = ConsoleColor.Green; // green
                 Console.WriteLine("1st: Player {0}", playerScore);
+                Console.ForegroundColor = currentColor;
+
                 Console.WriteLine("2nd: Robot {0}", robotScore );
             }
             else if (robotScore > playerScore)
             {
                 Console.WriteLine("1st: Robot {0}", robotScore);
+
+                Console.ForegroundColor = ConsoleColor.Red; // red
                 Console.WriteLine("2st: Player {0}", playerScore);
-            }
+                Console.ForegroundColor = currentColor;
+                }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Yellow; // yellow
                 Console.WriteLine("1st: Player {0}", playerScore);
+                Console.ForegroundColor = currentColor;
+
                 Console.WriteLine("1st: Robot {0}", robotScore);
             }
-            
+
             Console.WriteLine("=============================\n");
         }
         
